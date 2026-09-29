@@ -1,14 +1,34 @@
-# astrbot-plugin-helloworld
+# astrbot_plugin_TTDservers
+项目地址：https://github.com/Waitforbankruptcy/astrbot_plugin_TTDservers
+作者主页：https://github.com/Waitforbankruptcy  
+AstrBot 插件，让你的bot拥有查询和播报openttd服务器的能力  
+并且支持IPv4/IPv6/域名  
+目前版本：v0.0.1（后续有时间可能会更新，也可能一直鸽）  
+（主要代码在TTDTCP.py里，拉出来单独使用也是同样效果）  
+使用命令：TTD ip 就可以查询OpenTTD服务器的一下信息：  
+"服务器名称"  
+"服务器版本"  
+"是否需要密码"  
+"当前在线客户端数"  
+"最大客户端数"  
+"当前观察者数"  
+"当前公司数"  
+"最大公司数"  
+"地图宽度"  
+"地图高度"  
+"景观类型"  
+"游戏起始日期"  
+"游戏当前日期"  
+"游戏运行时长"  
+"游戏脚本名称"   
+"是否专用服务器"  
+"NewGRF数量"  
+"NewGRF列表"  
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+效果如下
+![img.png](img.png)
 
-# Supports
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+
+
