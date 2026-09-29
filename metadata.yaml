@@ -5,3 +5,4 @@ version: v0.0.1 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: 等待破产 # 作者
 repo: https://github.com/Waitforbankruptcy/astrbot_plugin_TTDservers # 插件的仓库地址
 social_link: https://github.com/Waitforbankruptcy
+astrbot_version: ">=4.27.4"
