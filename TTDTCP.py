@@ -45,7 +45,7 @@ def server_csip(input): #命令参数 主要为ipv6和ipv4
             print(f"无效IPv6地址：{csip}，IPv6示例:[::1]:3979")
             return None, None #报错直接返回空
         #通过ipv6识别则直接开始一下操作
-        ip = csip[1:end]#删除括号并识别ip（原来写成了 input[1:end]，那是列表，会崩）
+        ip = csip[1:end]#删除括号并识别ip
         ipv6_hobufen = csip[end+1:]#剩下冒号和端口
         if not ipv6_hobufen.startswith(':'):#确保后面格式正常，不然直接打回，省的报其他什么垃圾错
             print(f"无效IPv6地址：{csip}，IPv6示例:[::1]:3979")
