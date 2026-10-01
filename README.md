@@ -1,5 +1,5 @@
 # astrbot_plugin_TTDservers
-项目地址：https://github.com/Waitforbankruptcy/astrbot_plugin_TTDservers
+项目地址：https://github.com/Waitforbankruptcy/astrbot_plugin_TTDservers  
 作者主页：https://github.com/Waitforbankruptcy  
 AstrBot 插件，让你的bot拥有查询和播报openttd服务器的能力  
 并且支持IPv4/IPv6/域名  
