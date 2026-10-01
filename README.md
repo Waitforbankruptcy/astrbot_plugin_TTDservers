@@ -28,7 +28,7 @@ AstrBot 插件，让你的bot拥有查询和播报openttd服务器的能力
 "NewGRF列表"  
 
 
-效果如下
+效果如此图  
 ![img.png](img.png)
 
 
