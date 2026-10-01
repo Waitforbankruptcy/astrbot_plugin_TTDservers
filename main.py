@@ -13,7 +13,7 @@ except ImportError:
     import TTDTCP
 
 
-@register("OpenTTD服务器数据检测", "等待破产", "检测和播报openttd服务器数据", "0.0.1")
+@register("OpenTTD服务器数据检测", "等待破产", "检测和播报openttd服务器数据", "0.0.2")
 class MyPlugin(Star):
     def __init__(self, context: Context):
         super().__init__(context)
@@ -25,7 +25,7 @@ class MyPlugin(Star):
     @filter.command("TTDhelp",alias={"帮助","OpenTTDhelp"})
     async def TTDhelp(self, event: AstrMessageEvent):
         """帮助指令""" # 帮助指令
-        yield event.plain_result(f"欢迎使用OpenTTD服务器数据检测\n 查询服务器：TTD ip\n[示例：TTD 127.0.0.0：3979 (注：兼容ipv6以及域名)]") # 发送一条纯文本消息
+        yield event.plain_result(f"欢迎使用OpenTTD服务器数据检测\n查询服务器：TTD ip\n[示例：TTD 127.0.0.0:3979 (注：兼容ipv6以及域名)]") # 发送一条纯文本消息
         # 后期打算添加功能：添加服务器： TTD+ serverip name\n 查看已添加服务器: TTD/ name\n
 
     @filter.command("TTD",alias={"查看TTD"})
