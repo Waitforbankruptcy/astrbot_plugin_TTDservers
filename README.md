@@ -2,11 +2,13 @@
 项目地址：https://github.com/Waitforbankruptcy/astrbot_plugin_TTDservers  
 作者主页：https://github.com/Waitforbankruptcy  
 AstrBot 插件，让你的bot拥有查询和播报openttd服务器的能力  
-并且支持IPv4/IPv6/域名  
-目前版本：v0.0.2（后续有时间可能会更新，也可能一直鸽）  
-（主要代码在TTDTCP.py里，拉出来单独使用也是同样效果） 
+并且支持IPv4/IPv6/域名/公开邀请码
+目前版本：v0.0.3（后续有时间可能会更新，也可能一直鸽）
+v0.0.3更新如下：  
+1.支持使用公开邀请码查询公开服务器（即支持被搜索互联网列表搜索到的服务器）  
+2.少许优化了一小点代码
 
-使用命令：TTD ip 就可以查询OpenTTD服务器的一下信息：  
+使用命令：TTD ip:端口/公开邀请码 就可以查询OpenTTD服务器的一下信息：
 
 "服务器名称"  
 "服务器版本"  
@@ -28,7 +30,7 @@ AstrBot 插件，让你的bot拥有查询和播报openttd服务器的能力
 "NewGRF列表"  
 
 
-效果如此图  
+效果如下
 ![img.png](img.png)
 
 
