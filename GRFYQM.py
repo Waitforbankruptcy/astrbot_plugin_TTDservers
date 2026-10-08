@@ -109,21 +109,21 @@ def lianjiebianma(data, off):
     if ver >= 4:#如果版本 >= 4
         grf_count = u_8()
         info["NewGRF数量"] = grf_count #保存NewGRF数量
-        # grfs = []  #清空列表，放NewGRF名
+        grfs = []  #清空列表，放NewGRF名
         for _ in range(grf_count):
             if newgrf_ser == 2: #如果是LookupId模式
                 idx = u_32()
-                # name = newgrf_lookup.get(idx, "") #从全局表查名字，查不到就用空字符串
-                # grfs.append(f"{name} ") #将名字加空格后追加到列表
+                name = newgrf_lookup.get(idx, "") #从全局表查名字，查不到就用空字符串
+                grfs.append(f"{name} ") #将名字加空格后追加到列表
             elif newgrf_ser == 1:
                 u_32() #不需要grfid，无视
                 off += 16 #不需要md5，无视
                 name = s() #读取名字字符串
-                # grfs.append(f"{name} ")  #将名字加空格后追加到列表
+                grfs.append(f"{name} ")  #将名字加空格后追加到列表
             else:
                 u_32() #不需要grfid，无视
                 off += 16 #不需要md5，无视
-        # info["NewGRF列表"] = grfs #保存NewGRF名
+        info["NewGRF列表"] = grfs #保存NewGRF名
     if ver >= 3:  #如果版本 >= 3
         cd = u_32()
         cs = u_32()
@@ -196,6 +196,7 @@ DISPLAY_ORDER = [
     "游戏脚本名称",
     "是否专用服务器",
     "NewGRF数量",
+    "NewGRF列表",
 ]
 def shuchu(info, yqm): #输出
     lines = []

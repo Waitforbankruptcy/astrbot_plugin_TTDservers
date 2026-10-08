@@ -14,15 +14,17 @@ from pathlib import Path
 
 # 优先尝试相对导入（插件作为包被加载时可用）
 try:
-    from . import TTDTCP, YQM
+    from . import TTDTCP, YQM,GRFTTDTCP,GRFYQM
 except ImportError:
     sys.path.insert(0, str(Path(__file__).parent))
     import TTDTCP
     import YQM
+    import GRFTTDTCP
+    import GRFYQM
 
 
 # 注册插件：插件名、作者、描述、版本号
-@register("OpenTTD服务器数据检测", "等待破产", "检测和播报openttd服务器数据", "0.0.3")
+@register("OpenTTD服务器数据检测", "等待破产", "检测和播报openttd服务器数据", "0.0.4")
 class MyPlugin(Star):
     # 构造函数，接收框架传入的上下文对象
     def __init__(self, context: Context):
@@ -44,7 +46,9 @@ class MyPlugin(Star):
             "  （兼容域名）\n"
             "   按邀请码查询（公开服务器）：\n"
             "   TTD 邀请码\n"
-            "   示例：TTD +abcd1234"
+            "   示例：TTD +abcd1234\n"
+            "注：如果想同时查看GRF列表请使用GRFTTD\n"
+            "（GRFTTD与TTD用法相同）"
         )
     # 注册查询指令，指令名 TTD，别名 查看TTD
     @filter.command("TTD", alias={"查看TTD"})
@@ -70,6 +74,35 @@ class MyPlugin(Star):
                 result = await asyncio.to_thread(YQM.query, target)
             else:
                 result = await asyncio.to_thread(TTDTCP.query, target)
+        except Exception as e:
+            logger.error(f"查询 {target} 出错: {e}")
+            yield event.plain_result(f"查询出错：{e}")
+            return
+        yield event.plain_result(result)
+
+    @filter.command("GRFTTD", alias={"查看GRFTTD"})
+    async def GRFTTD(self, event: AstrMessageEvent, target: str = ""):
+        """查询指令（自动识别 IP 与邀请码）"""
+        target = target.strip()
+        # 如果没有提供参数，就提示用户正确的输入格式
+        if not target:
+            yield event.plain_result(
+                "请提供服务器地址或邀请码，格式：\n"
+                "  GRFTTD ip:port\n"
+                "  示例：GRFTTD 127.0.0.1:3979\n"
+                "  示例：GRFTTD [::1]:3979\n"
+                "  GRFTTD 邀请码\n"
+                "  示例：GRFTTD +abcd1234"
+            )
+            # 直接返回，结束本次处理
+            return
+        # 把查询工作包在 try 里，防止网络错误导致插件崩溃
+        try:
+            # 邀请码固定以 '+' 开头，据此选择不同的查询方式
+            if target.startswith("+"):
+                result = await asyncio.to_thread(GRFYQM.query, target)
+            else:
+                result = await asyncio.to_thread(GRFTTDTCP.query, target)
         except Exception as e:
             logger.error(f"查询 {target} 出错: {e}")
             yield event.plain_result(f"查询出错：{e}")

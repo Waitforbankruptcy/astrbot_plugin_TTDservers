@@ -241,13 +241,13 @@ def game_data(data):#解析
         if ver >= 4:
             grf_count = u_8()
             info['NewGRF数量'] = grf_count
-            # grfs = []
+            grfs = []
             for _ in range(grf_count):
                 grfid = u_32()
                 md5 = read(16).hex()
                 name = s()
-                # grfs.append(f"{name} ")
-            # info['NewGRF列表'] = grfs
+                grfs.append(f"{name} ")
+            info['NewGRF列表'] = grfs
         # 版本 >= 3
         # 游戏内日历日期和起始日期，原始值是"天数"，
         # 用 rq 转换成可读的年月日。
@@ -297,6 +297,7 @@ DISPLAY_ORDER = [
     "游戏脚本名称",
     "是否专用服务器",
     "NewGRF数量",
+    "NewGRF列表",
 ]
 def format_game_info(ttddata):
     """把原始字节组装成可读文本，返回字符串。"""
